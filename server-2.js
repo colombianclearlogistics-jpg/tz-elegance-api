@@ -16,6 +16,7 @@ app.get('/getCitas', function(req, res) {
 });
 
 app.post('/cita', function(req, res) {
+
   fetch(URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
