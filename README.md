@@ -1,4 +1,3 @@
-[server-3.js](https://github.com/user-attachments/files/27307484/server-3.js)
 var express = require('express');
 var fetch = require('node-fetch');
 var cors = require('cors');
@@ -10,18 +9,18 @@ app.use(express.json());
 var GURL = 'https://script.google.com/macros/s/AKfycbzgoEncuiDiynK8XIC53jJcwu6nBB90ZstXufyvDixc6PxCu19vkyuI7g0Ao0B5C_M/exec';
 
 app.get('/getCitas', function(req, res) {
-  fetch(GURL + '?action=getCitas')
+  obtener(GURL + '?action=getCitas')
     .then(function(r) { return r.json(); })
     .then(function(d) { res.json(d); })
     .catch(function(e) { res.json({ error: e.message }); });
 });
 
 app.post('/cita', function(req, res) {
-  fetch(GURL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(req.body),
-    redirect: 'follow'
+  obtener(GURL, {
+    método: 'POST',
+    encabezados: { 'Content-Type': 'application/json' },
+    cuerpo: JSON.stringify(req.body),
+    redirigir: 'seguir'
   })
     .then(function(r) { return r.json(); })
     .then(function(d) { res.json(d); })
@@ -30,5 +29,5 @@ app.post('/cita', function(req, res) {
 
 app.get('/', function(req, res) { res.send('TZ OK'); });
 
-var PORT = process.env.PORT || 3000;
-app.listen(PORT);
+var PUERTO = proceso.env.PUERTO || 3000;
+aplicación.escuchar(PUERTO);
