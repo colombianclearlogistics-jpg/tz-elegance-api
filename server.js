@@ -6,7 +6,7 @@ var app = express();
 app.use(cors());
 app.use(express.json());
 
-var GURL = 'https://script.google.com/macros/s/AKfycbxjcdhDzq1R6SiF5mz9Acv-z21IdVK2KSpkCOiRxGZ6LTAQAiIIr19uYEfJXkL0fk5a/exec';
+var GURL = 'https://script.google.com/macros/s/AKfycbyLQljZjqACpKUcsxw2xnXdgvKxKgaG1Wqp8UXM8ERR8N9Sc_xIWY6ILj73qhK9Ts6J/exec';
 
 app.get('/getCitas', function(req, res) {
   fetch(GURL + '?action=getCitas')
