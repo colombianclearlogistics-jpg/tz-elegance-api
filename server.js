@@ -8,7 +8,6 @@ app.use(express.json());
 
 const SCRIPT_URL = “https://script.google.com/macros/s/AKfycbx-sU5HKodKEOxN81WdJ6cLQkiyXiv6Ni2DivvTMHG3ni3ZzdwXXZSaoML43L0-ixwF/exec”;
 
-// GET - traer citas
 app.get(”/getCitas”, async (req, res) => {
 try {
 const r = await fetch(SCRIPT_URL + “?action=getCitas”);
@@ -19,7 +18,6 @@ res.json({ error: e.message });
 }
 });
 
-// POST - agregar, actualizar, eliminar
 app.post(”/cita”, async (req, res) => {
 try {
 const r = await fetch(SCRIPT_URL, {
@@ -38,4 +36,4 @@ res.json({ error: e.message });
 app.get(”/”, (req, res) => res.send(“TZ Elegance API OK”));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(“Servidor corriendo en puerto “ + PORT));
+app.listen(PORT, () => console.log(“Servidor en puerto “ + PORT));
